@@ -1,0 +1,9 @@
+version: '3'
+services:
+  frps:
+    image: registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.31.2
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./frps.ini:/etc/frps.ini
+
