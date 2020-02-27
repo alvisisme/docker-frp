@@ -1,0 +1,10 @@
+FROM alpine:3.11.3
+ARG FRP_VERSION
+RUN wget https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_amd64.tar.gz \
+    && tar xzf frp_${FRP_VERSION}_linux_amd64.tar.gz \
+    && mv frp_${FRP_VERSION}_linux_amd64/frpc /usr/bin/frpc \
+    && mv frp_${FRP_VERSION}_linux_amd64/frpc_full.ini  /etc/frpc_full.ini \
+    && mv frp_${FRP_VERSION}_linux_amd64/frpc.ini  /etc/frpc.ini \
+    && rm -rf frp_${FRP_VERSION}_linux_amd64 \
+    && rm -f frp_${FRP_VERSION}_linux_amd64.tar.gz \
+    && frpc --version
