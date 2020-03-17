@@ -9,4 +9,5 @@ RUN wget https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_$
     && rm -f frp_${FRP_VERSION}_linux_amd64.tar.gz \
     && frps --version
 
-ENTRYPOINT frps -c /etc/frps.ini
+CMD ["frps", "-c", "/etc/frps.ini"]
+

@@ -1,6 +1,11 @@
 version: '3'
 services:
   frps:
+    build:
+      context: .
+      dockerfile: Dockerfile.frps
+      args:
+        - FRP_VERSION=0.31.2
     image: registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.31.2
     restart: always
     network_mode: "host"

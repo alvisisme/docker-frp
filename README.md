@@ -28,8 +28,14 @@ docker run -it registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.31.2 cat /
 
 根据需求配置 **frps.ini** 后启动frp服务端
 
-```
+```bash
 docker run -it --network host -v $PWD/frps.ini:/etc/frps.ini registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.31.2
+```
+
+或者使用docker-compose启动
+
+```bash
+docker-compose -f docker-compose-frps.yml up -d
 ```
 
 客户端配置过程类似。
