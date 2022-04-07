@@ -9,17 +9,10 @@ branches:
   only:
     - master
 
-env:
-  - FRP_VERSION=0.41.0
-
 script:
+  - docker-compose -f docker-compose-frpc.yml build
+  - docker-compose -f docker-compose-frps.yml build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build --pull -t alvisisme/frp:frps-$FRP_VERSION --build-arg FRP_VERSION=$FRP_VERSION -f Dockerfile.frps .
-  - docker build --pull -t alvisisme/frp:frpc-$FRP_VERSION --build-arg FRP_VERSION=$FRP_VERSION -f Dockerfile.frpc .
   - docker push alvisisme/frp:frps-$FRP_VERSION
-  - docker push alvisisme/frp:frpc-$FRP_VERSION 
-  - echo "$ALIYUN_PASSWORD" | docker login -u "$ALIYUN_USERNAME" --password-stdin registry.cn-hangzhou.aliyuncs.com
-  - docker tag alvisisme/frp:frps-$FRP_VERSION registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-$FRP_VERSION
-  - docker tag alvisisme/frp:frpc-$FRP_VERSION  registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frpc-$FRP_VERSION 
-  - docker push registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-$FRP_VERSION
-  - docker push registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frpc-$FRP_VERSION 
+  - docker push alvisisme/frp:frpc-$FRP_VERSION
+  - docker logout
