@@ -6,8 +6,8 @@
 ## 拉取镜像
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.31.2
-docker pull registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frpc-0.31.2
+docker pull registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.41.0
+docker pull registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frpc-0.41.0
 ```
 
 ## 如何使用
@@ -17,19 +17,19 @@ docker pull registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frpc-0.31.2
 导出默认配置文件到当前目录
 
 ```bash
-docker run -it registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.31.2 cat /etc/frps.ini > frps.ini
+docker run -it registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.41.0 cat /etc/frps.ini > frps.ini
 ```
 
 查看frp服务端完整配置样例
 
 ```bash
-docker run -it registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.31.2 cat /etc/frps_full.ini
+docker run -it registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.41.0 cat /etc/frps_full.ini
 ```
 
 根据需求配置 **frps.ini** 后启动frp服务端
 
 ```bash
-docker run -it --network host -v $PWD/frps.ini:/etc/frps.ini registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.31.2
+docker run -it --network host -v $PWD/frps.ini:/etc/frps.ini registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.41.0
 ```
 
 或者使用docker-compose启动
