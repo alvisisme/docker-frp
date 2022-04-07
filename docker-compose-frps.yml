@@ -5,8 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile.frps
       args:
-        - FRP_VERSION=0.41.0
-    image: registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-0.41.0
+        - FRP_VERSION=${FRP_VERSION}
+    image: registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frps-${FRP_VERSION}
     restart: always
     network_mode: "host"
     volumes:
