@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.frpc
       args:
         - FRP_VERSION=${FRP_VERSION}
-    image: registry.cn-hangzhou.aliyuncs.com/alvisisme/frp:frpc-${FRP_VERSION}
+    image: alvisisme/frp:frpc
     restart: always
     network_mode: "host"
     volumes:

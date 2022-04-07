@@ -13,6 +13,6 @@ script:
   - docker-compose -f docker-compose-frpc.yml build
   - docker-compose -f docker-compose-frps.yml build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push alvisisme/frp:frps-$FRP_VERSION
-  - docker push alvisisme/frp:frpc-$FRP_VERSION
+  - docker push alvisisme/frp:frps
+  - docker push alvisisme/frp:frpc
   - docker logout
